@@ -10,7 +10,7 @@ st.set_page_config(
 )
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"main_data.csv")
+    df = pd.read_csv(r"dashboard\main_data.csv")
     
     df = df.rename(columns={
         'dteday': 'date',
