@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 sns.set_style("whitegrid")
 
 st.set_page_config(
@@ -10,7 +11,9 @@ st.set_page_config(
 )
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"dashboard\main_data.csv")
+    base_dir = os.path.dirname(__file__)
+    data_path = os.path.join(base_dir, "main_data.csv")
+    df = pd.read_csv(data_path)
     
     df = df.rename(columns={
         'dteday': 'date',
