@@ -76,15 +76,6 @@ else:
 
 
 
-st.subheader("📈 Tren Peminjaman Sepeda Harian")
-
-fig, ax = plt.subplots(figsize=(10,4))
-ax.plot(filtered_df['date'], filtered_df['total_rentals'])
-ax.set_xlabel("Date")
-ax.set_ylabel("Total Rentals")
-
-st.pyplot(fig)
-
 
 st.subheader("🌦️ Pengaruh Cuaca dan Musim")
 
@@ -114,8 +105,8 @@ with col2:
 
 st.subheader("📅 Hari Kerja vs Hari Libur")
 
-fig, ax = plt.subplots(figsize=(6,4))
-sns.barplot(
+fig, ax = plt.subplots(figsize=(10,4))
+sns.boxplot(
     data=filtered_df,
     x='workingday_label',
     y='total_rentals',
@@ -129,7 +120,7 @@ st.pyplot(fig)
 
 st.subheader("🌡️ Suhu vs Jumlah Peminjaman")
 
-fig, ax = plt.subplots(figsize=(6,4))
+fig, ax = plt.subplots(figsize=(10,4))
 sns.scatterplot(
     data=filtered_df,
     x='temp_celsius',
@@ -152,7 +143,7 @@ filtered_df['demand_category'] = pd.cut(
     labels=labels
 )
 
-fig, ax = plt.subplots(figsize=(6,4))
+fig, ax = plt.subplots(figsize=(10,4))
 sns.countplot(
     data=filtered_df,
     x='demand_category',
